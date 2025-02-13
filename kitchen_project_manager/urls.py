@@ -17,7 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from catalog.views import DishTypeListView, DishListView, DishDetailView, CookListView, CookDetailView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('catalog/', include('catalog.urls', namespace='catalog')),
+    path('dish_types/', DishTypeListView.as_view(), name='dish_type_list'),
+    path('dishes/', DishListView.as_view(), name='dish_list'),
+    path('dishes/<int:pk>/', DishDetailView.as_view(), name='dish_detail'),
+    path('cooks/', CookListView.as_view(), name='cook_list'),
+    path('cooks/<int:pk>/', CookDetailView.as_view(), name='cook_detail'),
 ]
