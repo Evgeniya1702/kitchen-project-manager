@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cook Detail</title>
+</head>
+<body>
+{% block content %}
+  <h1>Cook Detail: {{ object.username }}</h1>
+  <p><strong>First Name: </strong>{{ object.first_name }}</p>
+  <p><strong>Last Name: </strong>{{ object.last_name }}</p>
+  <p><strong>Email: </strong>{{ object.email }}</p>
+  <p><strong>Year of Experience: </strong>{{ object.years_of_experience }}</p>
+  <h2>Dishes Prepared</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+  </table>
+  {% for cook in object.dishes.all %}
+    <tr>
+      <td><a href="{% url 'dish_detail' dish.id %}">{{ dish.id }}</a></td>
+      <td>{{ dish.name }}</td>
+      <td>{{ dish.dish_type.name}}</td>
+      <td>{{ dish.price }}</td>
+    </tr>
+  {% endfor %}
+{% endblock %}
+</body>
+</html>

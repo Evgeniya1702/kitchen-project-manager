@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cook List</title>
+</head>
+<body>
+  <h1>Cook List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Year of experience</th
+        <th>ID</th>
+      </tr>
+    </thead>
+  </table>
+{% for cook in object_list %}
+    <tr>
+    <td><a href="{% url 'cook_detail' cook.id %}">{{ cook.id }}</a></td>
+    <td>{{ cook.username }}</td>
+    <td>{{ cook.year_of_experience}} year of experience</td>
+  </tr>
+{% endfor %}
+<div>
+  {%  if paginated %}
+    <div>
+    <ul class="pagination"></ul>
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+    </div>
+  {% endif %}
+</div>
+</body>
+</html>

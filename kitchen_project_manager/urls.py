@@ -22,7 +22,7 @@ from catalog.views import DishTypeListView, DishListView, DishDetailView, CookLi
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('catalog/', include('catalog.urls', namespace='catalog')),
-    path('dish_types/', DishTypeListView.as_view(), name='dish_type_list'),
+    path('dish_types/', DishTypeListView.as_view(), name='dishtype_list'),
     path('dishes/', DishListView.as_view(), name='dish_list'),
     path('dishes/<int:pk>/', DishDetailView.as_view(), name='dish_detail'),
     path('cooks/', CookListView.as_view(), name='cook_list'),

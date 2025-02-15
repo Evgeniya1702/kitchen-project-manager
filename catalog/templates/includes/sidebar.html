@@ -1,9 +1,9 @@
 <div id="sidebar">
     <h2>Navigation</h2>
     <ul>
-        <li><a href="#">Home page</a></li>
-        <li><a href="#">Dish</a></li>
-        <li><a href="#">DishType</a></li>
-        <li><a href="#">Cook</a></li>
+        <li><a href="/">Home page</a></li>
+        <li><a href="{% url 'dish_list' %}">Dish</a></li>
+        <li><a href="{% url 'dishtype_list' %}">DishType</a></li>
+        <li><a href="{% url 'cook_list' %}">Cook</a></li>
     </ul>
 </div>
